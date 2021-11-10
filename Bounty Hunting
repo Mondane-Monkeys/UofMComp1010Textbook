@@ -1,20 +1,27 @@
+//////////////////////////////////////////////////////////////////////////////
 This file contains a list of tasks and questions that need to get resolved.
 Each question should be reviewed by at least one other student.
 Look to improve readablity. 
 Find more elegant solutions.
 Follows Programming Standards 
 https://universityofmanitoba.desire2learn.com/d2l/le/content/464836/viewContent/2518116/View
+///////////////////////////////////////////////////////////////////////////////
 
-Focus on the most recent 4 textbook sections.
-Namely units 10-12
+
 Unit 10: Not started
 Unit 11: Not started
 Unit 12: Incomplete
-    Q1: Answered, not revied
-    Q2: Answered, not revied
-    Q3: Answered, not revied
-    Q4: Answered, not revied
-    Q5: Answered, not revied
+    Q1: Answered, not reviewed    
+           # Answered by MangoPel
+           # Reviewed by 
+    Q2: Answered by MangoPel, not reviewed
+           # Answered by MangoPel
+           # Reviewed by 
+    Q3: Answered by MangoPel, not reviewed
+           # Answered by MangoPel
+           # reviewed by 
+    Q4: Answered, not reviewed
+    Q5: Answered, not reviewed
     Q6-11 Need responses
 
 Bounty Board:
@@ -23,3 +30,4 @@ Files or question you want brought to the attention of all
 #Check out my autoComplete tool! Found in uofMComp1010Textbook/TestFolder/AutoComplete Tool
     Try installing it, using it, and adding your own macros to it!
     Read the readme for instal details
+    #by mangoPel
