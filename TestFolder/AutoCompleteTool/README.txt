@@ -5,7 +5,7 @@ Adapted by Ness Tran
 Designed and tested for Processing 3.5.4 on windows
 
 How to use:
-    The tool will auto complete code by pressing ctlr+spacebar while the caret it at the end of a defined keywords.
+    The tool will auto complete code by pressing ctlr+spacebar while the caret is at the end of a defined keywords.
     The 15 macros created in the original tool and documented in the above link are enabled by default.
     Custom macros can be added to the functionality by modifying the CustomMacros.json file.
 
