@@ -10,8 +10,8 @@ How to use:
     Custom macros can be added to the functionality by modifying the CustomMacros.json file.
 
 Install instructions:
-    1) Move the AutoFromJson folder to \processing-3.5.4\Tools
-    2) Copy the CustomMacros.json file to \processing-3.5.4\config\ (You will need to create the config folder)
+    1) Move the AutoFromJson folder to [yourProjectFolder]\tools (or \processing-3.5.4\Tools)
+    2) Copy the config folder to \processing-3.5.4\
     3) For each instance of Processing run, in the toolbar select Tools>AutoFromJson
     4) If the console displays "AutoFromJson is running", the default macros are now active
     5) If the console displays "Success: Json file found at..." then any macros defined in the json file are active
