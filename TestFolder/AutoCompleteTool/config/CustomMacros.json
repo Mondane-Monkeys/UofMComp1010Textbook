@@ -1,0 +1,42 @@
+{
+    "macros": [
+        {
+        "key":"1",
+        "code": "\n//wow! Code appeared\n",
+        "carBack": 0
+        }
+    ],
+    "replaceMacros": [
+        {
+            "key":"/as",
+            "code": "/*\n COMP 1010    SECTION A03\n INTRUCTOR    Dr Celine Latulipe\n NAME:        Name\n ASSIGNMENT:  Assignment #2\n QUESTION:    Question #1\n PURPOSE:     \n*/\n",
+            "carBack": 76
+        },
+        {
+            "key":"/lab",
+            "code": "/* Lab 04 Fall - COMP 1010 - Bronze Exercise\n Author: Name\n Date: Oct 7, 2021\n \n*/\n",
+            "carBack": 75
+        },
+        {
+            "key":"/void",
+            "code": "/*Purpose:       \n* Value sources: \n* Output:        \n* Calculations:  \n*/",
+            "carBack": 3
+        },
+        {
+            "key":"",
+            "code": "void setup() {\n   size(500, 500);\n   \n}\n\nvoid draw() {\n   \n}\n",
+            "carBack": 24
+        },
+        {
+            "key":"/cl",
+            "code": "/*\n In-Class exercises\n Week 5\n Oct 7, 2021\n exercise 1\n Comlpleted\n*/\n",
+            "carBack": 0
+        },
+        {
+            "key":"keyPressed",
+            "code": "void keyPressed() {\n   \n}",
+            "carBack": 2
+        }
+        
+    ]
+}
