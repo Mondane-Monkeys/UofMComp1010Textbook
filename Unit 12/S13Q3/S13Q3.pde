@@ -1,3 +1,9 @@
+/*
+  The goal is to modify this code to move the second hand in a smooth manner. 
+  You must use millis() which returns the # of milliseconds since the program began
+*/
+
+
 int clockRadius = 100;
 int tickSize = 1;
 int largeTickSize = 3;
