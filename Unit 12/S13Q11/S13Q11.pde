@@ -1,26 +1,18 @@
-final int NUM_BALLS = 6;
-final float BALL_SPACING = PI/6;
-final float BALL_DIAMETER = 16;
-final float BALL_ORBIT_RADIUS = 32;
-final float ORBIT_SPEED = PI/60.0;
-final float ROGUE_BALL_SPEEDUP = 1.7;
-
-float trailingBallAngle = 0;
-float rogueBallAngle = NUM_BALLS*BALL_SPACING; 
-
-final int MIN_COLOUR = 150;
-final int MAX_COLOUR = 255;
-final int TRAIL_MIN_COLOUR = MIN_COLOUR;
-final int TRAIL_RANGE = (MAX_COLOUR-MIN_COLOUR)/NUM_BALLS;
+/* 
+I have no idea how this is ever supposed to work
+Please help
+*/
 
 
-final int BG_COLOUR = 192;
-final float RED_VALUE = 0;
-final float GREEN_VALUE = 150;
-final float BLUE_VALUE = 200;
+float step = 50;
+float t1 = 0.5;
 
-float rogBallColour = MAX_COLOUR;
-float trailingBallColour = TRAIL_MIN_COLOUR;
+float pt0X = 0;
+float pt0Y = 0;
+float pt1X = 25;
+float pt1Y = 25;
+float pt2X = 50;
+float pt2Y = 0;
 
 
 void setup() {
@@ -28,63 +20,49 @@ void setup() {
 }
 
 void draw() {
-  background(BG_COLOUR);
-  incAngles(); 
-  updateColor();
-  collisionCheck(); 
-  drawRogue(); 
-  drawTrail();
-}
-
-
-
-void incAngles() {
-  rogueBallAngle += ORBIT_SPEED*ROGUE_BALL_SPEEDUP;
-  rogueBallAngle= rogueBallAngle%(2*PI);
-  trailingBallAngle += ORBIT_SPEED;
-  trailingBallAngle = trailingBallAngle%(2*PI);
-}
-
-void updateColor() {
-  float rogCatchupSpeed  = ORBIT_SPEED*ROGUE_BALL_SPEEDUP - ORBIT_SPEED; 
-  float distNotTrail = 2*PI - (NUM_BALLS*BALL_SPACING); 
-  float framesBetweenColllisions = distNotTrail/rogCatchupSpeed; 
-  float rogColourChangePerFrame = (MAX_COLOUR-MIN_COLOUR)/framesBetweenColllisions; 
-  float trailColourChangePerFrame = (TRAIL_RANGE)/framesBetweenColllisions;
-  rogBallColour-=rogColourChangePerFrame;
-  trailingBallColour+=trailColourChangePerFrame;
-}
-
-
-
-void collisionCheck() {
-  boolean rogLowerCheck = rogueBallAngle > trailingBallAngle-BALL_SPACING;
-  boolean rogUpperCheck = rogueBallAngle < trailingBallAngle;
-  if (rogLowerCheck&&rogUpperCheck) {
-    float trailLength = NUM_BALLS*BALL_SPACING;
-    rogueBallAngle+=trailLength;
-    trailingBallAngle-=BALL_SPACING;
-    rogBallColour = MAX_COLOUR;
-    trailingBallColour = TRAIL_MIN_COLOUR;
+  background(0);
+  ////updateMouse();
+  //circle(pt0X, pt0Y, 5);
+  //circle(pt1X, pt1Y, 5);
+  //circle(pt2X, pt2Y, 5);
+  for (int i=1; i < 100; i+=10) {
+    println(i/10.0);
+    fill(25*i);
+    t1 = i/10.0;
+    updateCoef();
   }
 }
 
-
-void drawRogue() {
-  fill(rogBallColour, GREEN_VALUE, BLUE_VALUE);
-  float thisCircX = mouseX + BALL_ORBIT_RADIUS*cos(rogueBallAngle);
-  float thisCircY = mouseY + BALL_ORBIT_RADIUS*sin(rogueBallAngle);  
-  circle(thisCircX, thisCircY, BALL_DIAMETER);
+void updateMouse() {
+  pt0X = mouseX;
+  pt0Y = mouseY;
 }
 
-
-void drawTrail() {
-  for (int i=0; i < NUM_BALLS; i++) {
-    float dynamicColVal = trailingBallColour + i*TRAIL_RANGE;
-    fill(dynamicColVal, GREEN_VALUE, BLUE_VALUE); 
-    float thisCircAng = trailingBallAngle+i*BALL_SPACING;
-    float thisCircX = mouseX + BALL_ORBIT_RADIUS*cos(thisCircAng);
-    float thisCircY = mouseY + BALL_ORBIT_RADIUS*sin(thisCircAng);
-    circle(thisCircX, thisCircY, BALL_DIAMETER);
-  }
+void updateCoef() {
+  float a0X = pt0X;
+  float a0Y = pt0Y;
+  float a2X = ((pt1X-pt0X)/(t1*(t1-1))) - ((pt2X-pt0X)/(t1-1));
+  float a2Y = ((pt1Y-pt0Y)-((pt2Y-pt0Y)*t1))/ t1*(t1-1);
+  float a1X = pt2X - pt0X - a2X;
+  float a1Y = pt2Y - pt0Y - a2Y;
+  //println(a2X*t1*t1);
+  //println(a2Y +", " +a1Y+", " +a0Y);
+  float outputX = a2X*t1*t1 + a1X*t1 + a0X;
+  float outputY = a2Y*t1*t1 + a1Y*t1 + a0Y;
+  circle(outputX, outputY, 10);
+  
+  float numerX = (pt1X-pt0X)-(pt2X-pt0X)*t1;
+  float numerY = (pt1Y-pt0Y)-(pt2Y-pt0Y)*t1;
+  float term0X = pt0X;
+  float term0Y = pt0Y;
+  float term2X = t1*numerX/(t1-1);
+  float term2Y = t1*numerY/(t1-1);
+  float term1X = pt2X*t1 - pt0X*t1 - numerX/(t1-1);
+  float term1Y = pt2Y*t1 - pt0Y*t1 - numerY/(t1-1);
+  fill(#ff0000);
+  float pontX = term0X + term1X + term2X;
+  float pontY = term0Y + term1Y + term2Y;
+  println(numerX/(t1-1));
+  println(pontX+", "+pontY);
+  circle(pontX, pontY, 5);
 }
