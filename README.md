@@ -1,4 +1,5 @@
-# Use the TestFolder to try creating, editing, or any other file shenangins you wish. It is designed to give you a space to play with GitHub
+# U of M Textbook Repository
+
 
 This Repo is a collection of textbook answers for the UofM Comp1010 textbook. 
 It was created by and for the students of this class.
